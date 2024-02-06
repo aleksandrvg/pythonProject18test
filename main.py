@@ -29,9 +29,19 @@ if __name__ == "__main__":
         if chose == "считаем":
             vyrazhenie = input("Введите выражение: ")
             if isValidInput(vyrazhenie):
-                pass
+                sign = ""
+                if vyrazhenie.find("+") != -1:
+                    sign = "+"
+                elif vyrazhenie.find("-") != -1:
+                    sign = "-"
+                elif vyrazhenie.find("*") != -1:
+                    sign = "*"
+                elif vyrazhenie.find(":") != -1:
+                    sign = ":"
+                num = calculate(vyrazhenie, sign)
+                print(f"{vyrazhenie} = {num}")
             else:
-                print("Некорректный формат")
+                print("Некорректный формат выражения")
                 continue
         elif chose == "выходим":
             break
